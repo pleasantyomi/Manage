@@ -1,11 +1,12 @@
 import logo from "../assets/logo.svg";
 import Button from "./Button";
 import Hamburger from "./Hamburger";
+import image from "../assets/bg-tablet-pattern.svg";
 
 export default function Header() {
   return (
-    <div>
-      <div className="lg:w-10/12 w-11/12 mx-auto mt-10 flex justify-between items-center">
+    <div className="relative">
+      <div className="lg:w-10/12 w-11/12 mx-auto flex justify-between items-center">
         <div>
           <img className="h-6" src={logo} alt={"logo"} />
         </div>
@@ -18,14 +19,20 @@ export default function Header() {
           <nav>Community</nav>
         </div>
 
+        <img
+          src={image}
+          alt={"image"}
+          className="absolute lg:-right-[10rem] lg:-top-[11rem] -right-[5rem] -top-[5rem] z-[1] lg:w-7/12"
+        />
+
         <div>
           <Button
-            className="text-white px-7 text-[14px] font-[500] lg:block hidden"
+            className="text-white px-7 text-[14px] font-[500] lg:block hidden z-[10] relative"
             text={"Get started"}
           />
         </div>
 
-        <div className="lg:hidden block">
+        <div className="lg:hidden block relative z-[10]">
           <Hamburger />
         </div>
       </div>

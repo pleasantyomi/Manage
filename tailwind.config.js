@@ -14,6 +14,10 @@ export default {
       fontFamily: {
         primary: ['"Be Vietnam Pro", sans - serif'],
       },
+      backgroundImage: {
+        desktop: 'url("src/assets/bg-simplify-section-desktop.svg")',
+        mobile: 'url("src/assets/bg-simplify-section-mobile.svg")',
+      },
     },
   },
   plugins: [],

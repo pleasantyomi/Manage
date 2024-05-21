@@ -9,7 +9,7 @@ export default function Hero() {
         <img
           src={illustrator}
           alt={"Illustrator"}
-          className="relative w-full h-full z-[9999] lg:hidden"
+          className="relative w-full h-full z-[1] lg:hidden"
         />
       </div>
       <div className="lg:flex grid justify-between items-center">

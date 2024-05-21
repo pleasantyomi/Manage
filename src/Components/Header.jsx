@@ -3,7 +3,7 @@ import Button from "./Button";
 import Hamburger from "./Hamburger";
 import image from "../assets/bg-tablet-pattern.svg";
 
-export default function Header() {
+export default function Header({ setIsMenuOpen }) {
   return (
     <div className="relative">
       <div className="lg:w-10/12 w-11/12 mx-auto flex justify-between items-center">
@@ -13,7 +13,7 @@ export default function Header() {
 
         <div className="grid-cols-5 font-[500] text-DarkBlue lg:grid hidden">
           <nav>Pricing</nav>
-          <nav>product</nav>
+          <nav>Product</nav>
           <nav>About Us</nav>
           <nav>Careers</nav>
           <nav>Community</nav>
@@ -32,8 +32,8 @@ export default function Header() {
           />
         </div>
 
-        <div className="lg:hidden block relative z-[10]">
-          <Hamburger />
+        <div className="lg:hidden block z-[10]">
+          <Hamburger setIsMenuOpen={setIsMenuOpen} />
         </div>
       </div>
     </div>

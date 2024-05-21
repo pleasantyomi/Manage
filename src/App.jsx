@@ -4,17 +4,22 @@ import Hero from "./Components/Hero";
 import Manage from "./Components/Manage";
 import Simplify from "./Components/Simplify";
 import Testimony from "./Components/Testimony";
+import { useState } from "react";
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <>
-      <div className="font-primary  pt-10 overflow-x-hidden bg-white">
-        <Header />
-        <Hero />
-        <Manage />
-        <Testimony />
-        <Simplify />
-        <Footer />
+      <div className="pt-10 font-primary overflow-x-hidden bg-white relative ">
+        <Header setIsMenuOpen={setIsMenuOpen} />
+        <div className={`${isMenuOpen ? "blurred" : ""}`}>
+          <Hero />
+          <Manage />
+          <Testimony />
+          <Simplify />
+          <Footer />
+        </div>
       </div>
     </>
   );

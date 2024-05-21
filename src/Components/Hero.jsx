@@ -25,7 +25,7 @@ export default function Hero() {
 
           <Button
             text={"Get started"}
-            className="capitalize text-white px-10 text-[14px] font-[500] lg:mt-8 mt-6 lg:mx-0 mx-auto block relative z-[9999]"
+            className="capitalize text-white lg:px-10 px-12 text-[14px] font-[500] lg:mt-8 mt-6 lg:mx-0 mx-auto block relative z-[9999]"
           />
         </div>
 

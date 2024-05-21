@@ -37,7 +37,7 @@ export default function MobileSlider() {
         <div className="no-scrollbar flex gap-10 pb-8 overflow-x-auto  pt-10">
           {lists.map((list) => (
             <div key={list.id} className="flex-none relative w-full">
-              <div className="relative bg-VeryLightGray h-[25vh] rounded-md px-8 pt-14">
+              <div className="relative bg-VeryLightGray h-[30vh] rounded-md px-8 pt-14">
                 <img
                   src={list.image}
                   alt="Avatar"

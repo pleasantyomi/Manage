@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import logo from "../assets/logo.svg";
+import Logo from "../Logo";
 import Button from "./Button";
 import Hamburger from "./Hamburger";
 import image from "../assets/bg-tablet-pattern.svg";
@@ -31,7 +31,7 @@ export default function Header({ setIsMenuOpen }) {
     <div className="relative">
       <div className="lg:w-10/12 w-11/12 mx-auto flex justify-between items-center">
         <div>
-          <img className="h-6" src={logo} alt={"logo"} />
+          <Logo alt={"logo"} className="" fill={"#242D52"} />
         </div>
 
         <div className="grid-cols-5 font-[500] text-DarkBlue lg:grid hidden">

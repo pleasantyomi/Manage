@@ -13,7 +13,7 @@ function App() {
     <>
       <div className="pt-10 font-primary overflow-x-hidden bg-white relative ">
         <Header setIsMenuOpen={setIsMenuOpen} />
-        <div className={`main-content ${isMenuOpen ? "overlay-active" : ""}`}>
+        <div className={`${isMenuOpen ? "blurred" : ""}`}>
           <Hero />
           <Manage />
           <Testimony />

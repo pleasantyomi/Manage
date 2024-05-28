@@ -1,7 +1,35 @@
-import logo from "../assets/logo.svg";
+import Logo from "../Logo";
 import Button from "./Button";
+import Fb from "./Fb";
+import Ig from "./Ig";
+import Youtube from "./Youtube";
+import Twitter from "./Twitter";
+import Pinterest from "./Pinterest";
 
 export default function Footer() {
+  const icons = [
+    {
+      icon: <Fb />,
+      id: 1,
+    },
+    {
+      icon: <Youtube />,
+      id: 2,
+    },
+    {
+      icon: <Twitter />,
+      id: 3,
+    },
+    {
+      icon: <Pinterest />,
+      id: 4,
+    },
+    {
+      icon: <Ig />,
+      id: 5,
+    },
+  ];
+
   const currentYear = new Date().getFullYear();
   return (
     <div className="bg-VeryDarkBlue w-full py-14 text-white ">
@@ -9,7 +37,7 @@ export default function Footer() {
         {/* Desktop footer */}
         <div className="lg:flex hidden justify-between items-start">
           <div>
-            <img className=" h-6" src={logo} alt={"logo"} />
+            <Logo alt={"logo"} className="" fill={"#ffffff"} />
           </div>
 
           <div className="grid gap-2 text-[14px]">
@@ -67,8 +95,16 @@ export default function Footer() {
             </div>
           </div>
 
+          <div className="flex w-10/12 items-center mx-auto justify-between">
+            {icons.map((media) => (
+              <div key={media.id}>
+                <div className="flex-shrink-0 flex-nowrap ">{media.icon}</div>
+              </div>
+            ))}
+          </div>
+
           <div>
-            <img src={logo} alt={"logo"} className="h-6 mx-auto" />
+            <Logo alt={"logo"} className="block mx-auto" fill={"#ffffff"} />
           </div>
 
           <div>

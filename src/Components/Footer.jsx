@@ -27,9 +27,9 @@ export default function Footer() {
 
           <div className="flex items-center gap-3">
             <input
-              type="text"
+              type="email"
               placeholder="Updates in your inbox..."
-              className="bg-white rounded-full px-4 py-3 text-[12px] flex-shrink-0 flex-nowrap"
+              className="bg-white rounded-full px-4 py-3 text-[12px] flex-shrink-0 flex-nowrap outline-none text-DarkBlue font-[500]"
             />
             <Button
               text={"Go"}
@@ -38,13 +38,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Mobile Desktop */}
+        {/* Mobile footer */}
         <div className="grid lg:hidden gap-10">
           <div className="flex justify-between items-center gap-3 w-full">
             <input
-              type="text"
+              type="email"
               placeholder="Updates in your inbox..."
-              className="bg-white rounded-full px-4 py-3 text-[12px] w-full"
+              className="bg-white rounded-full px-4 py-3 text-[12px] w-full text-DarkBlue font-[500] outline-none "
             />
             <Button
               text={"Go"}

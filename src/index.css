@@ -14,6 +14,8 @@
   }
 }
 .blurred {
-  filter: blur(5px);
+  /* filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.4); */
+  background-image: linear-gradient(#ffffff, hsl(227, 12%, 61%));
   transition: filter 0.3s ease-in-out;
 }

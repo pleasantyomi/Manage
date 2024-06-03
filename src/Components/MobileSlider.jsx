@@ -1,8 +1,9 @@
-/* eslint-disable react/no-unescaped-entities */
+import { useState, useRef, useEffect } from "react";
 import ali from "../assets/avatar-ali.png";
 import anisha from "../assets/avatar-anisha.png";
 import richard from "../assets/avatar-richard.png";
 import shanai from "../assets/avatar-shanai.png";
+import Rounded from "./Rounded";
 
 export default function MobileSlider() {
   const lists = [
@@ -31,28 +32,68 @@ export default function MobileSlider() {
       id: 4,
     },
   ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sliderRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveIndex(Number(entry.target.dataset.index));
+          }
+        });
+      },
+      {
+        root: sliderRef.current,
+        threshold: 0.5,
+      }
+    );
+
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((slide) => observer.observe(slide));
+
+    return () => {
+      slides.forEach((slide) => observer.unobserve(slide));
+    };
+  }, []);
+
   return (
     <div>
-      <div className="block lg:hidden w-11/12 mx-auto">
-        <div className="no-scrollbar flex gap-10 pb-8 overflow-x-auto  pt-10">
-          {lists.map((list) => (
-            <div key={list.id} className="flex-none relative w-full">
+      <div className="block w-11/12 mx-auto lg:hidden">
+        <div
+          ref={sliderRef}
+          className="flex gap-10 pt-10 pb-8 overflow-x-auto no-scrollbar"
+        >
+          {lists.map((list, index) => (
+            <div
+              key={list.id}
+              className="relative flex-none w-full slide"
+              data-index={index}
+            >
               <div className="relative bg-VeryLightGray h-[30vh] rounded-md px-8 pt-10">
                 <img
                   src={list.image}
-                  alt="Avatar"
-                  className="w-16 h-auto absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                  alt={list.name}
+                  className="absolute top-0 w-16 h-auto transform -translate-x-1/2 -translate-y-1/2 left-1/2"
                 />
                 <div className="mt-8 text-center">
                   <h1 className="text-[18px] font-[600] text-DarkBlue">
                     {list.name}
                   </h1>
                   <p className="text-DarkGrayishBlue text-[14px]">
-                    "{list.text}"
+                    {list.text}
                   </p>
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center gap-2 mb-8">
+          {lists.map((_, index) => (
+            <Rounded key={index} isActive={activeIndex === index} />
           ))}
         </div>
       </div>

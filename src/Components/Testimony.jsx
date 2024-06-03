@@ -6,7 +6,7 @@ import Slider from "./Slider";
 
 export default function Testimony() {
   return (
-    <div className="relative lg:mt-32 mb-20 w-screen">
+    <div className="relative w-screen mb-20 lg:mt-32">
       <div>
         <div>
           <img
@@ -29,7 +29,7 @@ export default function Testimony() {
           <div>
             <Button
               text={"Get Started"}
-              className="px-10 py-2 text-white font-[500] block mx-auto"
+              className="px-10 py-2 text-white font-[500] block mx-auto  hover:shadow-lg hover:shadow-BrightRed"
             />
           </div>
         </div>

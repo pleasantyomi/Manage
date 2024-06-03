@@ -29,7 +29,7 @@ export default function Header({ setIsMenuOpen }) {
   ];
   return (
     <div className="relative">
-      <div className="lg:w-10/12 w-11/12 mx-auto flex justify-between items-center">
+      <div className="flex items-center justify-between w-11/12 mx-auto lg:w-10/12">
         <div>
           <Logo alt={"logo"} className="" fill={"#242D52"} />
         </div>
@@ -52,7 +52,7 @@ export default function Header({ setIsMenuOpen }) {
 
         <div>
           <Button
-            className="text-white px-7 text-[14px] font-[500] lg:block hidden z-[10] relative"
+            className="text-white px-7 text-[14px] font-[500] lg:block hidden z-[10] relative  hover:shadow-lg hover:shadow-BrightRed"
             text={"Get started"}
           />
         </div>

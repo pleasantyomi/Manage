@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Logo from "../Logo";
 import Button from "./Button";
 import Fb from "./Fb";
@@ -8,6 +9,9 @@ import Pinterest from "./Pinterest";
 import HoverableIcon from "./HoverableIcon";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
   const icons = [
     {
       icon: Fb,
@@ -42,6 +46,21 @@ export default function Footer() {
   ];
 
   const currentYear = new Date().getFullYear();
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validateEmail(email)) {
+      setError("Please insert a valid email.");
+    } else {
+      setError("");
+    }
+  };
+
   return (
     <div className="w-full text-white bg-VeryDarkBlue py-14 ">
       <div className="w-11/12 mx-auto lg:w-10/12">
@@ -64,16 +83,27 @@ export default function Footer() {
             <nav>Privacy Policy</nav>
           </div>
 
-          <div className="flex items-center gap-3">
-            <input
-              type="email"
-              placeholder="Updates in your inbox..."
-              className="bg-white rounded-full px-4 py-3 text-[12px] flex-shrink-0 flex-nowrap outline-none text-DarkBlue font-[500]"
-            />
-            <Button
-              text={"Go"}
-              className="px-6  flex-shrink-0 flex-nowrap text-[12px] font-[500]"
-            />
+          <div>
+            <div className="flex items-center gap-3">
+              <input
+                type="email"
+                placeholder="Updates in your inbox..."
+                className="bg-white rounded-full px-4 py-3 text-[12px] flex-shrink-0 flex-nowrap outline-none text-DarkBlue font-[500]"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Button
+                text={"Go"}
+                className="px-6  flex-shrink-0 flex-nowrap text-[12px] font-[500]"
+                onClick={handleSubmit}
+              />
+            </div>
+
+            {error && (
+              <p className="ml-3 text-sm italic font-thin text-red-500">
+                {error}
+              </p>
+            )}
           </div>
 
           <div className="flex items-center justify-between w-7/12 place-content-end">
@@ -98,19 +128,28 @@ export default function Footer() {
 
         {/* Mobile footer */}
         <div className="grid gap-10 lg:hidden">
-          <div className="flex items-center justify-between w-full gap-3">
-            <input
-              type="email"
-              id="email"
-              placeholder="Updates in your inbox..."
-              className="bg-white rounded-full px-4 py-3 text-[12px] w-full text-DarkBlue font-[500] outline-none "
-            />
-            <Button
-              text={"Go"}
-              type={"submit"}
-              className="px-6  flex-shrink-0 flex-nowrap text-[12px] font-[500]"
-              // onClick={emailValidation()}
-            />
+          <div>
+            <div className="flex items-center justify-between w-full gap-3">
+              <input
+                type="email"
+                id="email"
+                placeholder="Updates in your inbox..."
+                className="bg-white rounded-full px-4 py-3 text-[12px] w-full text-DarkBlue font-[500] outline-none "
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Button
+                text={"Go"}
+                type={"submit"}
+                className="px-6  flex-shrink-0 flex-nowrap text-[12px] font-[500]"
+                onClick={handleSubmit}
+              />
+            </div>
+            {error && (
+              <p className="ml-3 text-sm italic font-thin text-red-500">
+                {error}
+              </p>
+            )}
           </div>
 
           <div className="flex items-start justify-between w-10/12 mx-auto">

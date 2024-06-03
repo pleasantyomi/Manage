@@ -4,7 +4,7 @@ import image from "../assets/bg-tablet-pattern.svg";
 
 export default function Hero() {
   return (
-    <div className="relative w-10/12 mx-auto lg:mt-20 mt-10">
+    <div className="relative w-10/12 mx-auto mt-10 lg:mt-20">
       <div>
         <img
           src={illustrator}
@@ -12,7 +12,7 @@ export default function Hero() {
           className="relative w-full h-full z-[1] lg:hidden"
         />
       </div>
-      <div className="lg:flex grid justify-between items-center">
+      <div className="grid items-center justify-between lg:flex">
         <div className="flex-shrink-0 flex-nowrap lg:w-5/12">
           <h1 className="text-DarkBlue font-[700]  text-[40px] lg:text-[56px] leading-[1.1] lg:text-left text-center mt-5">
             Bring everyone together to build better products.
@@ -25,7 +25,7 @@ export default function Hero() {
 
           <Button
             text={"Get started"}
-            className="capitalize text-white lg:px-10 px-12 text-[14px] font-[500] lg:mt-8 mt-6 lg:mx-0 mx-auto block relative z-[9999]"
+            className="capitalize text-white lg:px-10 px-12 text-[14px] font-[500] lg:mt-8 mt-6 lg:mx-0 mx-auto block relative z-[9999]  hover:shadow-lg hover:shadow-BrightRed"
           />
         </div>
 

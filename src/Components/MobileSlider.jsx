@@ -83,7 +83,7 @@ export default function MobileSlider() {
                     {list.name}
                   </h1>
                   <p className="text-DarkGrayishBlue text-[14px]">
-                    {list.text}
+                    "{list.text}"
                   </p>
                 </div>
               </div>
